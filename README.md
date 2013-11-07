@@ -1,4 +1,2 @@
-tictactoe_libgdx
+tictactoe by libgdx (In progress...)
 ================
-
-tictactoe demo app in libgdx - android/ios/html5/desktop cross-platform
