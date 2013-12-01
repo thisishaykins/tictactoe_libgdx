@@ -1,13 +1,11 @@
-package com.ngochoang.framework;
+package com.ngochoang.models;
 
 public class GamePlayer {
-	GameLogic logic;
 	private String name;
 	private String sign;
 	public boolean[][] checks;
 	
-	public GamePlayer(GameLogic framework2, int size) {
-		logic = framework2;
+	public GamePlayer(int size) {
 		checks = new boolean[size][size];
 		for (int i=0;i<size;i++)
 			for (int j=0;j<size;j++)
@@ -34,5 +32,16 @@ public class GamePlayer {
 
 	public void setSign(String sign) {
 		this.sign = sign;
+	}
+	
+	int[] XYToMatrix(int x,int y)
+	{
+		int[] res = new int[2];
+		
+		return res;
+	}
+
+	public boolean SetOn(int screenX, int screenY) {
+		return false;
 	}
 }
