@@ -3,7 +3,6 @@ package com.ngochoang.views;
 import java.util.Vector;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -12,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ngochoang.events.GameMenuListener;
 
-public class GameMenu extends Stage implements InputProcessor {
+public class GameMenu extends Stage {
 	Vector<String> menuStringItems;
 	Vector<TextButton> buttons;
 	Table table;

@@ -24,11 +24,12 @@ public class MyGdxGame implements ApplicationListener {
 		multiplexer = new InputMultiplexer();
 		vBoard = new GameBoard();
 		vMenu = new GameMenu();
-		multiplexer.addProcessor(vBoard);
 		multiplexer.addProcessor(vMenu);
+		multiplexer.addProcessor(vBoard);
 
 		vMenu.AddMenuItem("Start game");
 		vMenu.AddMenuItem("Exit");
+		Gdx.input.setInputProcessor(multiplexer);
 	}
 
 	public static boolean IsState(GameStatus state) {
