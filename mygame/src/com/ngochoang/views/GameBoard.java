@@ -3,8 +3,10 @@ package com.ngochoang.views;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.ngochoang.controllers.MyGdxGame;
 import com.ngochoang.events.GameBoardListener;
 
 public class GameBoard implements InputProcessor {
@@ -12,6 +14,10 @@ public class GameBoard implements InputProcessor {
 	private int tableSize;
 	ShapeRenderer shape = new ShapeRenderer();
 	GameBoardListener listener = null;
+	
+	public GameBoard()
+	{
+	}
 
 	public void AddListener(GameBoardListener l) {
 		listener = l;
@@ -59,7 +65,17 @@ public class GameBoard implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		// TODO Auto-generated method stub
+		//System.out.println(screenX+","+screenY+","+pointer+","+button);
+		if (button == 0)
+		{
+			int cellSize = tableSize / nbCell;
+			int row = -1;
+			int column = -1;
+			column = (int)Math.ceil(screenX/cellSize);
+			row = (int)Math.ceil(screenY/cellSize);
+			if (listener != null)
+				listener.CellClick(row, column);
+		}
 		return false;
 	}
 
@@ -79,5 +95,17 @@ public class GameBoard implements InputProcessor {
 	public boolean scrolled(int amount) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public int GetNbCell() {
+		return nbCell;
+	}
+
+	public void SetNbCell(int c) {
+		nbCell = c;
+	}
+
+	public int getCellSize() {
+		return Gdx.graphics.getHeight() / nbCell;
 	}
 }

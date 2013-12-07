@@ -17,20 +17,24 @@ public class GameMenu extends Stage {
 	Table table;
 	Skin skin;
 	GameMenuListener listener = null;
-	
+		
 	public void AddListener(GameMenuListener l)
 	{
 		listener = l;
 	}
 
 	public GameMenu() {
+		
 		buttons = new Vector<TextButton>();
 		menuStringItems = new Vector<String>();
-
 		skin = new Skin(Gdx.files.internal("uiskin.json"));
+		
 		table = new Table();
 		table.setFillParent(true);
 		this.addActor(table);
+
+		AddMenuItem("Start game");
+		AddMenuItem("Exit");
 	}
 
 	public void Render() {
